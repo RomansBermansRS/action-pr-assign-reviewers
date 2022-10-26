@@ -11,7 +11,9 @@ try {
     reviewers: core.getInput('reviewers').split(','),
     team_reviewers: core.getInput('team-reviewers').split(',')
   })
-  console.log(123, result)
+
+  console.log('REVIEWERS', core.getInput('reviewers').split(','))
+  console.log('TEAM REVIEWERS', core.getInput('team-reviewers').split(','))
 } catch (error) {
   core.setFailed(error)
 }
