@@ -5,10 +5,10 @@ inputs:
     description: 'GitHub token'
     required: true
   reviewers:  # id of input
-    description: 'Reviewers'
+    description: 'Reviewers users'
     required: true
   team-reviewers:  # id of input
-    description: 'Reviewers'
+    description: 'Reviewers teams'
     required: true
 runs:
   using: 'node16'
