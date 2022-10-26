@@ -1,13 +1,15 @@
 name: 'PR Assign Reviewers'
 description: 'Assign user(s) or team(s) as PR reviewers'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  github-token:  # id of input
+    description: 'GitHub token'
     required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  reviewers:  # id of input
+    description: 'Reviewers'
+    required: true
+  team-reviewers:  # id of input
+    description: 'Reviewers'
+    required: true
 runs:
   using: 'node16'
   main: 'index.js'
