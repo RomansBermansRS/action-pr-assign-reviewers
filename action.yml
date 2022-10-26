@@ -1,13 +1,13 @@
 name: 'PR Assign Reviewers'
 description: 'Assign user(s) or team(s) as PR reviewers'
 inputs:
-  github-token:  # id of input
+  github-token:
     description: 'GitHub token'
     required: true
-  reviewers:  # id of input
+  reviewers:
     description: 'Reviewers users'
     required: true
-  team-reviewers:  # id of input
+  team-reviewers:
     description: 'Reviewers teams'
     required: true
 runs:

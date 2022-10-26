@@ -15,9 +15,6 @@ try {
     reviewers,
     team_reviewers
   })
-
-  console.log('REVIEWERS', reviewers)
-  console.log('TEAM REVIEWERS', team_reviewers)
 } catch (error) {
   core.setFailed(error)
 }

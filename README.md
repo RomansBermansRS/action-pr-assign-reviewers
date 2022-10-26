@@ -4,14 +4,16 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 
 ## Inputs
 
-### `who-to-greet`
+### `github-token`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** GitHub token.
 
 ## Example usage
 
 ```yaml
 uses: RomansBermansRS/action-pr-assign-reviewers@v1.1
 with:
-  who-to-greet: 'Mona the Octocat'
+  github-token: ${{ secrets.GITHUB_TOKEN }}
+  reviewers: user-name
+  team-reviewers: slug/team-name
 ```
