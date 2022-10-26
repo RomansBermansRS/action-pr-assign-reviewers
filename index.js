@@ -4,16 +4,20 @@ import github from '@actions/github'
 try {
   const octokit = github.getOctokit(core.getInput('github-token'))
   const payload = github.context.payload
+
+  const reviewers = core.getInput('reviewers').split(',')
+  const team_reviewers = core.getInput('team-reviewers').split(',')
+
   const result = await octokit.rest.pulls.requestReviewers({
     owner: payload.repository.owner.login,
     repo: payload.repository.name,
     pull_number: payload.pull_request.number,
-    reviewers: core.getInput('reviewers').split(','),
-    team_reviewers: core.getInput('team-reviewers').split(',')
+    reviewers,
+    team_reviewers
   })
 
-  console.log('REVIEWERS', core.getInput('reviewers').split(','))
-  console.log('TEAM REVIEWERS', core.getInput('team-reviewers').split(','))
+  console.log('REVIEWERS', reviewers)
+  console.log('TEAM REVIEWERS', team_reviewers)
 } catch (error) {
   core.setFailed(error)
 }
