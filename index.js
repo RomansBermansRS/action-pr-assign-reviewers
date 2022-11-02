@@ -9,10 +9,11 @@ try {
   const teamsArray = core.getInput('team-reviewers').split(',')
 
   const results = await Promise.all(teamsArray.map(async team => {
-    console.log(1, team)
+    const slug = team.split('/')[1]
+    console.log(1, team, slug)
     const members = await octokit.rest.teams.listMembersInOrg({
       org: 'RevelStokeSec',
-      team_slug: team.split('/')[1]
+      team_slug: slug
     })
     console.log(2, members)
     return members.map(member => member.login)
