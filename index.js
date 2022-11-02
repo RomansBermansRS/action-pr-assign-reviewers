@@ -27,6 +27,6 @@ try {
     reviewers
   })
 } catch (error) {
-  console.log(error, error.message)
+  console.log(error)
   core.setFailed(error)
 }
