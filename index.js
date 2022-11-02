@@ -12,7 +12,7 @@ try {
     console.log(1, team)
     const members = await octokit.rest.teams.listMembersInOrg({
       org: 'RevelStokeSec',
-      team_slug: team
+      team_slug: team.split('/')[1]
     })
     console.log(2, members)
     return members.map(member => member.login)
