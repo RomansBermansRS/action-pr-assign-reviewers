@@ -10,19 +10,15 @@ try {
 
   const results = await Promise.all(teamsArray.map(async team => {
     const slug = team.split('/')[1]
-    console.log(1, team, slug)
     const members = await octokit.rest.teams.listMembersInOrg({
       org: 'RevelStokeSec',
       team_slug: slug
     })
-    console.log(2, members)
     return members.map(member => member.login)
   }))
 
   results.push(usersArray)
   const reviewers = Array.from(new Set(results.flat()))
-
-  console.log(999, reviewers)
 
   const result = await octokit.rest.pulls.requestReviewers({
     owner: payload.repository.owner.login,
